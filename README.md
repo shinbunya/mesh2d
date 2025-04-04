@@ -1,6 +1,6 @@
-## Changes in this fork
+## Modifications to the Original Package
 
-Shintaro Bunya, sbunya@gmail.com, made only minor mofifications to this package. `refine2_custom.m` is copied from `refine.m` and edited only to skip a few refinement steps. Apr 4, 2025.
+Shintaro Bunya made only minor modifications to this package. The file refine2_custom.m is a copy of refine.m, with a few refinement steps skipped.
 
 ## `MESH2D: Delaunay-based mesh generation in MATLAB`
 
