@@ -1,4 +1,12 @@
-function [vert,conn,tria,tnum] = refine2(varargin)
+function [vert,conn,tria,tnum] = refine2_custom(varargin)
+%
+% This matlab code is almost entirely based on 
+% Darren Engwirda's refine2.m distributed in the mesh2d
+% package. Minor changes have been made by Shintaro Bunya,
+% sbunya@gmail.com, only to skip a few refinement steps.
+% The lines with the changes are indicated by '%sb'.
+% - April 4, 2025
+%
 %REFINE2 (Frontal)-Delaunay-refinement for two-dimensional,
 %polygonal geometries.
 %   [VERT,EDGE,TRIA,TNUM] = REFINE2(NODE,EDGE) returns a co-
@@ -256,14 +264,14 @@ function [vert,conn,tria,tnum] = refine2(varargin)
     vert = [vert ; vbox] ;
 
 %-------------------------------- PASS 0: shield sharp feat.
-   [vert,conn,tria,tnum,iter] = ...
-        cdtbal0(vert,conn,tria,tnum, ...
-            node,PSLG,part,opts,hfun,harg,iter);
+%    [vert,conn,tria,tnum,iter] = ...                        %sb
+%         cdtbal0(vert,conn,tria,tnum, ...                   %sb
+%             node,PSLG,part,opts,hfun,harg,iter);           %sb
 
 %-------------------------------- PASS 1: refine 1-simplexes
-   [vert,conn,tria,tnum,iter] = ...
-        cdtref1(vert,conn,tria,tnum, ...
-            node,PSLG,part,opts,hfun,harg,iter);
+%    [vert,conn,tria,tnum,iter] = ...                        %sb
+%         cdtref1(vert,conn,tria,tnum, ...                   %sb
+%             node,PSLG,part,opts,hfun,harg,iter);           %sb
 
 %-------------------------------- PASS 2: refine 2-simplexes
    [vert,conn,tria,tnum,iter] = ...
@@ -1093,10 +1101,10 @@ function [vert,conn,tria,tnum,iter] = ...
 
     %------------------------------------- split constraints
         idx1 = ...
-       (1:size(new1))'+size(vert,1) ;
+       (1:size(new1,1))'+size(vert,1) ;                      %sb
 
         idx2 = ...
-       (1:size(new2))'+size(new1,1) ...
+       (1:size(new2,1))'+size(new1,1) ...                    %sb
                       +size(vert,1) ;
 
         cnew = [conn( ref1,1), idx1

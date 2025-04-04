@@ -1,3 +1,7 @@
+## Changes in this fork
+
+Shintaro Bunya, sbunya@gmail.com, made only minor mofifications to this package. `refine2_custom.m` is copied from `refine.m` and edited only to skip a few refinement steps. Apr 4, 2025.
+
 ## `MESH2D: Delaunay-based mesh generation in MATLAB`
 
 `MESH2D` is a `MATLAB` / `OCTAVE`-based unstructured mesh-generator for two-dimensional polygonal geometries, providing a range of relatively simple, yet effective two-dimensional meshing algorithms. `MESH2D` includes variations on the "classical" Delaunay refinement technique, a new "Frontal"-Delaunay refinement scheme, a non-linear mesh optimisation method, and auxiliary mesh and geometry pre- and post-processing facilities. 
